@@ -1,0 +1,57 @@
+body{
+margin-left:auto;
+margin-right: auto;
+width:90%;
+
+}
+
+.jumbotron {
+    border: 2px solid #4E83B8;
+    padding: 3px 0 3px 0;
+    margin-top: 4px;
+}
+
+.jumbotron h1 , .jumbotron h2,
+.jumbotron h1 .text-info, .jumbotron h2 .text-info,
+.jumbotron .h1, .jumbotron .h2,
+.jumbotron h1:hover, .jumbotron h2:hover,
+.jumbotron .h1:hover, .jumbotron .h2:hover, {
+    color: mediumturquoise;
+}
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-center{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.control-label {
+  font-size: 1em;
+}
+
+footer {
+    background-color:black;
+    padding: 10px 0 10px 0;
+    margin: 10px 0;
+}
+label {
+  font-size: 18px;
+}
+.navbar .navbar-default {
+  font-size: 18px;
+}
+
+#mainnav li a {
+    font-size: 18px;
+}
+
+#brand_image {
+ margin-top:-8px;
+
+}

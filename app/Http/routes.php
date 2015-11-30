@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/practice', function() {
@@ -28,6 +28,11 @@ Route::get('/practice', function() {
 });
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-Route::get('/item', function () {
-    return 'item main page';
-});
+//Items related controller method_exists
+Route::get('/items', 'ItemController@Index');
+Route::get('/items/create', 'ItemController@getCreate');
+Route::post('/items/create', 'ItemController@postCreate');
+Route::get('/items/edit/{id?}', 'ItemController@getEdit');
+Route::post('/items/edit/{id?}', 'ItemController@postEdit');
+Route::get('/items/delete/{id?}', 'ItemController@getDelete');
+Route::post('/items/delete/{id?}', 'ItemController@postDelete');

@@ -17,69 +17,31 @@ class ItemController extends Controller
     public function index()
     {
         //
+        return 'In index page of items';
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getCreate() {
+        $view = '<form method="POST" action="/items/create">';
+        $view .= csrf_field();
+        $view .= '<input type="text" name="title">';
+        $view .= '<input type="submit">';
+        $view .= '<form>';
+
+        return $view;
+        //return view('books.create');
+    }
+
+    public function postCreate(Request $request)
     {
-        //
+
+       $this->validate(
+           $request,
+           ['title' => 'required|min:5',  ]
+       );
+
+       return 'Process adding new item: '.$request->input('title');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
