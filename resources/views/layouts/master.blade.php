@@ -28,34 +28,48 @@
     </div>
     </header>
   {{-- Navigation bar goes here --}}
-  <nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<!-- Replace text with image for branding -->
-            <a class="navbar-brand" href="#">Brand</a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul id="mainnav" class="nav navbar-nav">
-				<li class="{{ Request::is('/') ? 'active' :'' }}"><a href="/">Home</a></li>
-				<li class="{{ Request::is('items') ? 'active' :'' }}"><a href="/items">Items</a></li>
-				<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Random Users</a></li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
-</nav>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+            <nav class="navbar navbar-default">
+            <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            		<span class="sr-only">Toggle navigation</span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            	</button>
+            	<!-- Replace text with image for branding -->
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul id="mainnav" class="nav navbar-nav">
+            		<li class="{{ Request::is('/') ? 'active' :'' }}"><a href="/">Home</a></li>
+            		<li class="{{ Request::is('items') ? 'active' :'' }}"><a href="/items">Items</a></li>
+            		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Random Users</a></li>
+            	</ul>
+            </div>
+            <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+            </nav>
+        </div> <!-- col for navigation>-->
+    </div> <!-- row for navigation -->
     <section>
-        {{-- Main page content will be yielded here --}}
-        @yield('content')
+        <div class="row">
+            <!-- images on the left -->
+            <div class="col-md-2">
+                <img src="images/SiteCover_small.jpg" class="img-responsive"/>
+                <img src="images/Anish_Sax_small.jpg" class="img-responsive"/>
+                <img src="images/Lasya_Dance_small.jpg" class="img-responsive"/>
+            </div>
+            <div class="col-md-8 col-md-offset-1">
+            {{-- Main page content will be yielded here --}}
+            @yield('content')
+            </div>
+        </div>
     </section>
 
     <footer>

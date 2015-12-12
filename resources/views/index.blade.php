@@ -20,7 +20,7 @@ such as a page specific styesheets.
 
 @section('content')
 <div class="row">
-<div class="col-md-8 col-md-offset-2">
+<!-- <div class="col-md-8 col-md-offset-2"> -->
   @if(count($errors) > 0)
     <ul>
         @foreach ($errors->all() as $error)
@@ -28,7 +28,7 @@ such as a page specific styesheets.
         @endforeach
     </ul>
  @endif
- <h3>How many paragraphs of lorem ipsum text would you like?</h3>
+ <h3 class="text-info text-center">Register your team for the 2016 talent show</h3>
   <form class="form-vertical" method="POST" action="/">
   <input type='hidden' name='_token' value='{{ csrf_token() }}'>
   <div class="form-group">
@@ -39,7 +39,7 @@ such as a page specific styesheets.
   </div>
   <button type="submit" class="btn btn-primary">Show Items</button>
   </form>
-</div>
+<!-- </div> -->
 </div>
 @stop
 

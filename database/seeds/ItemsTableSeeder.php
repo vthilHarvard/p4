@@ -24,5 +24,18 @@ class ItemsTableSeeder extends Seeder
             'status' => 'incomplete',
             'special_notes' => 'Need floor mikes'
         ]);
+
+            DB::table('items')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'name' => 'String quartet',
+            'type' => 'music',
+            'participant_count' => 4,
+            'audition_link' => 'http://www.example.com',
+            'user_id' => 1002,
+            'description' => 'Violins and Cellos',
+            'status' => 'incomplete',
+            'special_notes' => 'Need standing mikes'
+        ]);
     }
 }

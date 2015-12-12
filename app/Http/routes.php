@@ -64,10 +64,10 @@ Route::get('/debug', function() {
 
 
 //Items related controller method_exists
-Route::get('/items', 'ItemController@Index');
+Route::get('/items', 'ItemController@getIndex');
 Route::get('/items/create', 'ItemController@getCreate');
 Route::post('/items/create', 'ItemController@postCreate');
 Route::get('/items/edit/{id?}', 'ItemController@getEdit');
 Route::post('/items/edit/{id?}', 'ItemController@postEdit');
-Route::get('/items/delete/{id?}', 'ItemController@getDelete');
-Route::post('/items/delete/{id?}', 'ItemController@postDelete');
+Route::get('/items/delete/{id?}', 'ItemController@getDoDelete');
+Route::get('items/show', 'ItemController@getShow');
