@@ -16,14 +16,9 @@ class ItemController extends Controller
      */
      public function getIndex(Request $request) {
 
-        /* $items = \DB::table('items')->get();
-         // Output the results
-         foreach ($items as $item) {
-         echo $item->name.'<br/>';
-     } */
         $items = Item::all();
         dump($items->toArray());
-        return 'Found items';
+        return view('items.index')->with('items',$items);
     }
 
     public function index()
@@ -46,13 +41,14 @@ class ItemController extends Controller
     }
 
     public function getCreate() {
-        $view = '<form method="POST" action="/items/create">';
+        /*$view = '<form method="POST" action="/items/create">';
         $view .= csrf_field();
         $view .= '<input type="text" name="title">';
         $view .= '<input type="submit">';
-        $view .= '<form>';
+        $view .= '</form>'; */
 
-        return $view;
+
+        return view('items.create');
         //return view('books.create');
     }
 
@@ -68,14 +64,14 @@ class ItemController extends Controller
     }
 
     public function getEdit($id) {
-        $view = '<form method="POST" action="/items/edit">';
+        /*$view = '<form method="POST" action="/items/edit">';
         $view .= csrf_field();
         $view .= '<input type="text" name="title">';
         $view .= '<input type="submit">';
         $view .= '<form>';
 
-        return $view;
-        //return view('books.create');
+        return $view; */
+        return view('items.edit');
     }
 
     public function posEdit(Request $request)

@@ -8,7 +8,7 @@
 
     <meta charset='utf-8'>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css" type='text/css' rel='stylesheet'>
-  <link href="css/custom.css" type='text/css' rel='stylesheet'>
+  <link href="/css/custom.css" type='text/css' rel='stylesheet'>
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
 
@@ -61,9 +61,9 @@
         <div class="row">
             <!-- images on the left -->
             <div class="col-md-2">
-                <img src="images/SiteCover_small.jpg" class="img-responsive"/>
-                <img src="images/Anish_Sax_small.jpg" class="img-responsive"/>
-                <img src="images/Lasya_Dance_small.jpg" class="img-responsive"/>
+                <img src="/images/SiteCover_small.jpg" class="img-responsive"/>
+                <img src="/images/Anish_Sax_small.jpg" class="img-responsive"/>
+                <img src="/images/Lasya_Dance_small.jpg" class="img-responsive"/>
             </div>
             <div class="col-md-8 col-md-offset-1">
             {{-- Main page content will be yielded here --}}

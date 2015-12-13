@@ -15,26 +15,28 @@ class ItemsTableSeeder extends Seeder
             DB::table('items')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'school'=> 'Sunshine Dance',
             'name' => 'Dance Medley',
-            'type' => 'dance',
+            'type' => 'Dance',
             'participant_count' => 2,
             'audition_link' => 'http://www.example.com',
             'user_id' => 1001,
             'description' => 'Medley of dances',
-            'status' => 'incomplete',
+            'status' => 'Incomplete',
             'special_notes' => 'Need floor mikes'
         ]);
 
             DB::table('items')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'school' => "Violets violas",
             'name' => 'String quartet',
-            'type' => 'music',
+            'type' => 'Music',
             'participant_count' => 4,
             'audition_link' => 'http://www.example.com',
             'user_id' => 1002,
             'description' => 'Violins and Cellos',
-            'status' => 'incomplete',
+            'status' => 'Incomplete',
             'special_notes' => 'Need standing mikes'
         ]);
     }
