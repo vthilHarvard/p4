@@ -21,7 +21,6 @@ such as a page specific styesheets.
 
 
 @section('content')
-
     <h2 class="text-muted text-center">Add a new item</h2>
 
     @if(count($errors) > 0)
@@ -35,9 +34,10 @@ such as a page specific styesheets.
     <form class="form-horizontal" method='POST' action='/items/create'>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'>
         <div class="form-group">
-            <label class="col-sm-2 control-label">* School name:</label>
-            <div class="col-sm-8">
-                <input
+            <label class="col-sm-2 control-label" for='school'>* School name:</label>
+            <div class="col-sm-4">
+                <input class="form-control"
+                    size="35"
                     type='text'
                     id='school'
                     name='school'
@@ -48,8 +48,8 @@ such as a page specific styesheets.
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for='name'>* Item name:</label>
-            <div class="col-sm-8">
-            <input
+            <div class="col-sm-4">
+            <input class="form-control"
                 type='text'
                 id='name'
                 name="name"
@@ -60,8 +60,8 @@ such as a page specific styesheets.
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for='type'>* Item type:</label>
-            <div class="col-sm-8">
-                <select id='type' name='type' value='{{ old('type','Dance') }}'>
+            <div class="col-sm-2">
+                <select class="form-control input-sm" id='type' name='type' value='{{ old('type','Dance') }}'>
                   <option value="Dance">Dance</option>
                   <option value="Music">Music</option>
                   <option value="Skit">Skit</option>
@@ -69,26 +69,46 @@ such as a page specific styesheets.
             </div>
         </div>
         <div class="form-group">
-            <fieldset>
-                <label for='title'>*Number of participants</label>
-                <input type="number",
-                    id="participant_count",
-                    min="1" ,
-                    max="8",
-                    placeholder="Number in the range 1-8",
-                    value= '{{old('participant_count', '2')}}'>
-            </fieldset>
+            <label class="col-sm-2 control-label" for='participant_count'>*Number of participants</label>
+            <div class="col-sm-2">
+            <input class="form-control input-sm" type="number"
+                name = "participant_count"
+                id="participant_count"
+                min=1
+                max=8
+                value= '{{old('participant_count', 2) }}'>
+            </div>
         </div>
 
         <div class="form-group">
-        <fieldset>
-            <label for='title'>* URL To audition clip:</label>
-            <input
+            <label class="col-sm-2 control-label" for='audition_link'>* URL To audition clip:</label>
+            <div class="col-sm-8">
+            <input class="form-control input-sm"
                 type='text'
                 id='audition_link'
                 name='audition_link'
                 value='{{ old('audition_link','') }}'>
-        </fieldset>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='description'>Description of the item</label>
+            <div class="col-sm-8">
+            <input class="form-control input-sm"
+                type='text'
+                id='description'
+                name='description'
+                value='{{ old('description','') }}'>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='special_notes'>Special notes about the performers</label>
+            <div class="col-sm-8">
+            <textarea class="form-control" rows="3"
+                id='special_notes'
+                name='special_notes'
+                value='{{ old('special_notes','') }}'>
+            </textarea>
+            </div>
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Register</button>

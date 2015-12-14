@@ -7,7 +7,7 @@
     </title>
 
     <meta charset='utf-8'>
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css" type='text/css' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css" type='text/css' rel='stylesheet'>
   <link href="/css/custom.css" type='text/css' rel='stylesheet'>
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
@@ -18,7 +18,7 @@
       <div class="jumbotron center">
         <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-        <h1 class="text-center">America's kids got talent</h1>
+        <h1 class="text-center text-info">America's kids got talent</h1>
         <section>
           {{-- Sub heading will be yielded here --}}
           <h2 class="text-center text-muted">@yield('sub-heading')</h2>
@@ -47,7 +47,18 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             	<ul id="mainnav" class="nav navbar-nav">
             		<li class="{{ Request::is('/') ? 'active' :'' }}"><a href="/">Home</a></li>
-            		<li class="{{ Request::is('items') ? 'active' :'' }}"><a href="/items">Items</a></li>
+            		<li class="{{ Request::is('items') ? 'active' :'' }}"><a href=#>Items</a></li>
+                    <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items <span class="caret"></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="/items">Show</a></li>
+                         <li><a href="/items/create">New Item</a></li>
+                         <li><a href="/items/edit">Edit Item</a></li>
+                         <li><a href="/items/delete">Delete Item</a></li>
+                         <li role="separator" class="divider"></li>
+                         <li><a href="#">One more separated link</a></li>
+                       </ul>
+                     </li>
             		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Random Users</a></li>
             	</ul>
             </div>
@@ -79,8 +90,9 @@
       </div>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
     @yield('body')
 

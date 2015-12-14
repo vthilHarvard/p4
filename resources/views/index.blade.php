@@ -29,17 +29,21 @@ such as a page specific styesheets.
     </ul>
  @endif
  <h3 class="text-info text-center">Register your team for the 2016 talent show</h3>
-  <form class="form-vertical" method="POST" action="/">
-  <input type='hidden' name='_token' value='{{ csrf_token() }}'>
-  <div class="form-group">
-    <label for="para">Home page</label>
-    <div class="input-group">
-    <input type="text" class="form-control" id="para" name="para" placeholder="3">
-    </div>
+  <div class="row">
+      <p>While some kids may have obvious talents (playing the piano or singing), other kids may think there’s nothing special they can do, but almost any child can participate in a talent show. Give them some ideas, encourage them to think creatively, and let them have at it. Remember to teach kids to be a good audience by clapping, cheering or laughing at appropriate places.
+    </p>
+    <h3>Favorites</h3>
+  <p>Traditional favorites include telling jokes, singing, playing an instrument or dancing. Kids don’t have to be the next American Idol to showcase this kind of talent. Most kids can sing in a group. Camp songs, traditional folk songs or Top 40 radio hits are perfect for talent shows.
+  </p>
+  <h3>Skits</h3>
+  <p>Kids can act out scenes from a movie, TV show or book. Camp skits are another possibility, or kids can make up their own stories. Don’t forget props, costumes and makeup.
+  </p>
+  <h3>Lip Sync</h3>
+  <p>For kids who may not have singing talent but love to ham it up, lip syncing is an option. Add costumes and trademark movements to imitate the real singer.
+      <a href=" http://www.ehow.com/list_5809978_kids-talent-show-ideas.html">Read more... </a>
+  </p>
+
   </div>
-  <button type="submit" class="btn btn-primary">Show Items</button>
-  </form>
-<!-- </div> -->
 </div>
 @stop
 
