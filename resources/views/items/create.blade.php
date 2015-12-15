@@ -100,6 +100,7 @@ such as a page specific styesheets.
                 value='{{ old('description','') }}'>
             </div>
         </div>
+
         <div class="form-group">
             <label class="col-sm-2 control-label" for='special_notes'>Special notes about the performers</label>
             <div class="col-sm-8">
@@ -108,6 +109,16 @@ such as a page specific styesheets.
                 name='special_notes'
                 value='{{ old('special_notes','') }}'>
             </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='status'>Submit entry for approval?</label>
+            <div class="col-sm-2">
+            <input class="form-control input-sm"
+                type='checkbox'
+                id='status'
+                name='status'
+                value='{{ old('status', 'yes' ) }}'>
             </div>
         </div>
         <br>

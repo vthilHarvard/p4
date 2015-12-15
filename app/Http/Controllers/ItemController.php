@@ -60,7 +60,7 @@ class ItemController extends Controller
               ]
         );
         //dump($request->all());
-        Debugbar::info($request->all());
+        //Debugbar::info($request->all());
         //var_dump($request->all());
         // Code here to enter item into the database
         $item = new Item();
@@ -71,9 +71,18 @@ class ItemController extends Controller
         $item->participant_count = $request->participant_count;
         $item->user_id = 1001;
         $item->description = $request->description;
-        $item->status = 'Incomplete';  //Status is incomplete to start wtih
+        $item->status = 'Incomplete';
+        echo 'Status is '.$request->status; //Status is incomplete to start wtih
+        if ($request->status == 'yes')
+        {
+            $item->status = 'Submitted';
+        }
+        else {
+            $item->status = 'Incomplete';# code...
+        }
         $item->special_notes = $request->special_notes;
         $item->save();
+        \Session::flash('flash_message','You created a new item!');
         // Confirm  was entered:
         //return 'Process adding new item: '.$request->input('title');
         //return view()

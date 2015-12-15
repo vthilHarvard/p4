@@ -14,6 +14,11 @@
 
 </head>
 <body>
+    @if(\Session::has('flash_message'))
+    <div class='flash_message'>
+        {{\Session::get('flash_message')}}
+    </div>
+    @endif
     <header>
       <div class="jumbotron center">
         <div class="row">
@@ -47,11 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             	<ul id="mainnav" class="nav navbar-nav">
             		<li class="{{ Request::is('/') ? 'active' :'' }}"><a href="/">Home</a></li>
-            		<li class="{{ Request::is('items') ? 'active' :'' }}"><a href=#>Items</a></li>
                     <li class="dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items <span class="caret"></span></a>
                        <ul class="dropdown-menu">
-                         <li><a href="/items">Show</a></li>
+                         <li><a href="/items">Show All</a></li>
                          <li><a href="/items/create">New Item</a></li>
                          <li><a href="/items/edit">Edit Item</a></li>
                          <li><a href="/items/delete">Delete Item</a></li>
@@ -59,7 +63,7 @@
                          <li><a href="#">One more separated link</a></li>
                        </ul>
                      </li>
-            		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Random Users</a></li>
+            		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Organizer</a></li>
             	</ul>
             </div>
             <!-- /.navbar-collapse -->
