@@ -104,6 +104,8 @@ class ItemController extends Controller
             \Session::flash('flash_message','Item not found.');
             return redirect('/items');
         }
+        var_dump($item->toArray());
+
         //return 'ready to edit item';
         //return $item->school.' '.$item->name;
         return view('items.edit')->with('item', $item);
@@ -138,7 +140,7 @@ class ItemController extends Controller
         $item->participant_count = $request->participant_count;
         $item->user_id = 1001;
         $item->description = $request->description;
-        echo 'Status is '.$request->status;
+        //echo 'Status is '.$request->status;
         if ($request->status == 'yes')
         {
             $item->status = 'Submitted';
@@ -148,13 +150,53 @@ class ItemController extends Controller
         }
         $item->special_notes = $request->special_notes;
         $item->save();
-        \Session::flash('flash_message','You updated your item!');
+        //\Session::flash('flash_message','You updated your item '.$item->name);
         // Confirm  was entered:
         //return 'Process adding new item: '.$request->input('title');
         //return view()
         //\Session::flash('flash_message','Your item was added!'); */
-        return redirect('/items/edit/'.$request->id);
+        //return redirect('/items/edit/'.$request->id);
+        return redirect('/items/show-update');
     }
+
+    /**
+	*
+	*/
+    public function getConfirmDelete($item_id) {
+        $item = Item::find($item_id);
+        //var_dump($item->toArray());
+        return view('items.delete')->with('item', $item);
+    }
+    /**
+	*
+	*/
+    public function getDoDelete($item_id) {
+        $item = Item::find($item_id);
+        if(is_null($item)) {
+            \Session::flash('flash_message','item not found.');
+            return redirect('/items');
+        }
+
+        $item->delete();
+        \Session::flash('flash_message',"Item ".$item->name.' was deleted.');
+        return redirect('/items');
+    }
+    public function getShowUpdate(Request $request) {
+
+      // $items = Item::all();
+       $items = Item::where('user_id','=',1001)
+       ->where('status','=', 'Incomplete')
+       ->get();
+       //dump($items->toArray());
+       if (count($items) > 0)
+       {
+           return view('items.show-update')->with('items',$items);
+       }
+       else {
+        \Session::flash('flash_message',"You have no items for updates.");
+        return redirect('/items');
+       }
+   }
 
     public function destroy($id)
     {

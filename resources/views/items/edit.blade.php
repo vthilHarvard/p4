@@ -115,7 +115,7 @@ such as a page specific styesheets.
                 id='status'
                 name='status'
                 {{ ($item->status == 'Submitted')?'checked':"" }}
-                value='{{ ($item->status == 'Submitted')?'yes':"" }}'>
+                value='{{ old('status', 'yes' ) }}'>
             </div>
         </div>
         <br>

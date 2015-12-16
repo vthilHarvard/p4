@@ -56,11 +56,9 @@
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items <span class="caret"></span></a>
                        <ul class="dropdown-menu">
                          <li><a href="/items">Show All</a></li>
-                         <li><a href="/items/create">New Item</a></li>
-                         <li><a href="/items/edit">Edit Item</a></li>
-                         <li><a href="/items/delete">Delete Item</a></li>
-                         <li role="separator" class="divider"></li>
-                         <li><a href="#">One more separated link</a></li>
+                         <li role="separator" class="divider"></li>                         
+                         <li><a href="/items/create">Create Item</a></li>
+                         <li><a href="/items/show-update">Edit/Delete items</a></li>
                        </ul>
                      </li>
             		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Organizer</a></li>
