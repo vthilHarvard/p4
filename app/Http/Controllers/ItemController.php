@@ -57,6 +57,7 @@ class ItemController extends Controller
                 'name' => 'required|min:5',
                 'type' => 'required|in:"Dance", "Music", "Skit"',
                 'audition_link' => 'required | url',
+                'participant_count' => 'required | integer| min:1, max:8 '
               ]
         );
         //dump($request->all());
@@ -92,26 +93,66 @@ class ItemController extends Controller
     }
 
 
-    public function getEdit($id) {
-        /*$view = '<form method="POST" action="/items/edit">';
-        $view .= csrf_field();
-        $view .= '<input type="text" name="title">';
-        $view .= '<input type="submit">';
-        $view .= '<form>';
 
-        return $view; */
-        return view('items.edit');
+    /**
+    * Responds to requests to GET /items/edit/{$id}
+    */
+    public function getEdit($id = null) {
+        $item = Item::find($id);
+        if(is_null($item)) {
+            \Session::flash('flash_message','Item not found.');
+            return redirect('/items');
+        }
+        //return 'ready to edit item';
+        //return $item->school.' '.$item->name;
+        return view('items.edit'); //->with('item', $item);
+
     }
 
-    public function posEdit(Request $request)
+
+
+    public function postEdit(Request $request)
     {
 
-       $this->validate(
-           $request,
-           ['title' => 'required|min:5',  ]
-       );
-
-       return 'Process adding new item: '.$request->input('title');
+        echo 'In post edit';
+        $item = Item::find($request->id);
+/*        $this->validate(
+            $request,
+            [
+                'school' => 'required|min:5',
+                'name' => 'required|min:5',
+                'type' => 'required|in:"Dance", "Music", "Skit"',
+                'audition_link' => 'required | url',
+                'participant_count' => 'required | integer| min:1, max:8 '
+              ]
+        );
+        //dump($request->all());
+        //Debugbar::info($request->all());
+        //var_dump($request->all());
+        // Code here to enter item into the database
+        $item->school = $request->school;
+        $item->name = $request->name;
+        $item->type = $request->type;
+        $item->audition_link = $request->audition_link;
+        $item->participant_count = $request->participant_count;
+        $item->user_id = 1001;
+        $item->description = $request->description;
+        echo 'Status is '.$request->status; //Status is incomplete to start wtih
+        if ($request->status == 'yes')
+        {
+            $item->status = 'Submitted';
+        }
+        else {
+            $item->status = 'Incomplete';
+        }
+        $item->special_notes = $request->special_notes;
+        $item->save();
+        \Session::flash('flash_message','You updated your item!');
+        // Confirm  was entered:
+        //return 'Process adding new item: '.$request->input('title');
+        //return view()
+        //\Session::flash('flash_message','Your item was added!'); */
+        return redirect('/items/edit/'.$request->id);
     }
 
     public function destroy($id)
