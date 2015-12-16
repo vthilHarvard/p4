@@ -40,7 +40,7 @@ such as a page specific styesheets.
                     type='text'
                     id='school'
                     name='school'
-                    value='{{ $item->school) }}'
+                    value='{{ $item->school }}'
                 >
             </div>
         </div>
@@ -52,12 +52,72 @@ such as a page specific styesheets.
                 type='text'
                 id='name'
                 name="name"
-                value='{{ $item->name) }}'
+                value='{{ $item->name }}'
             >
             </div>
         </div>
-
-
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='type'>* Item type:</label>
+            <div class="col-sm-2">
+                <select class="form-control input-sm" id='type' name='type' value='{{ $item->type }}'>
+                  <option value="Dance" {{$item->type=='Dance'? 'selected':''}}>Dance</option>
+                  <option value="Music" {{$item->type=='Music'? 'selected':''}}>Music</option>
+                  <option value="Skit" {{$item->type=='Skit'? 'selected':''}}>Skit</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='participant_count'>*Number of participants</label>
+            <div class="col-sm-2">
+            <input class="form-control input-sm" type="number"
+                name = "participant_count"
+                id="participant_count"
+                min=1
+                max=8
+                value= '{{$item->participant_count}}'>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='audition_link'>* URL To audition clip:</label>
+            <div class="col-sm-8">
+            <input class="form-control input-sm"
+                type='text'
+                id='audition_link'
+                name='audition_link'
+                value='{{ $item->audition_link }}'>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='description'>Description of the item</label>
+            <div class="col-sm-8">
+            <input class="form-control input-sm"
+                type='text'
+                id='description'
+                name='description'
+                value='{{$item->description }}'>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='special_notes'>Special notes about the performers</label>
+            <div class="col-sm-8">
+            <textarea class="form-control" rows="3"
+                id='special_notes'
+                name='special_notes'
+                value='{{ $item->special_notes }}'>{{ $item->special_notes }}
+            </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='status'>Submit entry for approval?</label>
+            <div class="col-sm-2">
+            <input class="form-control input-sm"
+                type='checkbox'
+                id='status'
+                name='status'
+                {{ ($item->status == 'Submitted')?'checked':"" }}
+                value='{{ ($item->status == 'Submitted')?'yes':"" }}'>
+            </div>
+        </div>
         <br>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

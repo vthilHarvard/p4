@@ -107,7 +107,7 @@ such as a page specific styesheets.
             <textarea class="form-control" rows="3"
                 id='special_notes'
                 name='special_notes'
-                value='{{ old('special_notes','') }}'>
+                value='{{ old('special_notes','') }}'>{{ old('special_notes','') }}
             </textarea>
             </div>
         </div>

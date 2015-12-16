@@ -117,7 +117,7 @@ class ItemController extends Controller
 
         echo 'In post edit';
         $item = Item::find($request->id);
-/*        $this->validate(
+       $this->validate(
             $request,
             [
                 'school' => 'required|min:5',
@@ -138,7 +138,7 @@ class ItemController extends Controller
         $item->participant_count = $request->participant_count;
         $item->user_id = 1001;
         $item->description = $request->description;
-        echo 'Status is '.$request->status; //Status is incomplete to start wtih
+        echo 'Status is '.$request->status;
         if ($request->status == 'yes')
         {
             $item->status = 'Submitted';
@@ -153,7 +153,7 @@ class ItemController extends Controller
         //return 'Process adding new item: '.$request->input('title');
         //return view()
         //\Session::flash('flash_message','Your item was added!'); */
-        return 'item posted'; //redirect('/items/edit/'.$request->id);
+        return redirect('/items/edit/'.$request->id);
     }
 
     public function destroy($id)
