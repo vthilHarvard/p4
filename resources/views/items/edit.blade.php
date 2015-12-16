@@ -19,7 +19,6 @@ such as a page specific styesheets.
 @stop
 
 
-
 @section('content')
     <h2 class="text-muted text-center">Edit an item</h2>
 
@@ -30,10 +29,10 @@ such as a page specific styesheets.
         @endforeach
     </ul>
     @endif
-<!--
+
    <form class="form-horizontal" method='POST' action='/items/edit'>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'>
-        <input type='hidden' name='id' value='{{ $item->id }}'>
+<!--        <input type='hidden' name='id' value='{{ $item->id }}'>
         <div class="form-group">
             <label class="col-sm-2 control-label" for='school'>* School name:</label>
             <div class="col-sm-4">
@@ -122,9 +121,9 @@ such as a page specific styesheets.
                 value='{{ ($item->status }}'>
             </div>
         </div>
-        <br>
+        <br>-->
         <button type="submit" class="btn btn-primary">Update</button>
-    </form>-->
+    </form>
 @stop
 
 {{--
