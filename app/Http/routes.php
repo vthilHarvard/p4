@@ -61,7 +61,7 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
-
+Route::controller('/practice','PracticeController');
 
 //Items related controller method_exists
 Route::get('/items', 'ItemController@getIndex');

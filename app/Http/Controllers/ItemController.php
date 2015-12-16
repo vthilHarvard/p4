@@ -98,6 +98,7 @@ class ItemController extends Controller
     * Responds to requests to GET /items/edit/{$id}
     */
     public function getEdit($id = null) {
+        $item = new Item();
         $item = Item::find($id);
         if(is_null($item)) {
             \Session::flash('flash_message','Item not found.');
@@ -105,7 +106,7 @@ class ItemController extends Controller
         }
         //return 'ready to edit item';
         //return $item->school.' '.$item->name;
-        return view('items.edit'); //->with('item', $item);
+        return view('items.edit')->with('item', $item);
 
     }
 
@@ -152,7 +153,7 @@ class ItemController extends Controller
         //return 'Process adding new item: '.$request->input('title');
         //return view()
         //\Session::flash('flash_message','Your item was added!'); */
-        return redirect('/items/edit/'.$request->id);
+        return 'item posted'; //redirect('/items/edit/'.$request->id);
     }
 
     public function destroy($id)
