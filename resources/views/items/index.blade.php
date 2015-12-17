@@ -11,10 +11,11 @@
       <thead>
       <tr>
          <th>Item</th>
+         <th>Creator</th>
          <th>School</th>
          <th>Name</th>
          <th>Type</th>
-         <th>Number of participants</th>
+         <th>Performers</th>
          <th>Status</th>
       </tr>
       </thead>
@@ -28,6 +29,7 @@
           @foreach($items as $item)
               <tr>
                   <td>{{ $item->id }}</td>
+                  <td>{{ $item->user->name }}</td>
                   <td>{{ $item->school }}</td>
                   <td>{{ $item->name }}</td>
                   <td>{{ $item->type }}</td>

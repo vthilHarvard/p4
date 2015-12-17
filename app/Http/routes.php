@@ -65,14 +65,19 @@
 
     //Items related controller method_exists
     Route::get('/items', 'ItemController@getIndex');
-    Route::get('/items/create', 'ItemController@getCreate');
-    Route::post('/items/create', 'ItemController@postCreate');
-    Route::get('/items/edit/{id?}', 'ItemController@getEdit');
-    Route::post('/items/edit', 'ItemController@postEdit');
-    Route::get('/items/confirm-delete/{id?}', 'ItemController@getConfirmDelete');
-    Route::get('/items/delete/{id?}', 'ItemController@getDoDelete');
-    Route::get('items/show', 'ItemController@getShow');
-    Route::get('items/show-update', 'ItemController@getShowUpdate');
+    //Route::get('/items/create', 'ItemController@getCreate');
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/items/create', 'ItemController@getCreate');
+        Route::post('/items/create', 'ItemController@postCreate');
+        Route::get('/items/edit/{id?}', 'ItemController@getEdit');
+        Route::post('/items/edit', 'ItemController@postEdit');
+        Route::get('/items/confirm-delete/{id?}', 'ItemController@getConfirmDelete');
+        Route::get('/items/delete/{id?}', 'ItemController@getDoDelete');
+        Route::get('items/show', 'ItemController@getShow');
+        Route::get('items/show-update', 'ItemController@getShowUpdate');
+    });
+
 
 /*Authentication and login routes */
 # Show login form

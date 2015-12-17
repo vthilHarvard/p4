@@ -27,7 +27,7 @@ class CreateItemsTable extends Migration
                 $table->enum('type', ['Music', 'Dance', 'Skit']);
                 $table->integer('participant_count');
                 $table->string('audition_link');
-                $table->integer('user_id');  //person who is creating this item
+                //$table->integer('user_id');  //person who is creating this item
                 $table->string('description');
                 $table->enum('status', ['Incomplete', 'Submitted', 'Accepted', 'Rejected']);
                 $table->text('special_notes');  //notes to organizers

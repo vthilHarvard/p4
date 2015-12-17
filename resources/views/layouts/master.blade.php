@@ -46,7 +46,9 @@
             		<span class="icon-bar"></span>
             	</button>
             	<!-- Replace text with image for branding -->
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="/">
+                <img id="brand_image" class="img-responsive" alt="Dancing girl" src="/images/Bharatnatyam_logo_32.png">
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,12 +58,13 @@
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items <span class="caret"></span></a>
                        <ul class="dropdown-menu">
                          <li><a href="/items">Show All</a></li>
+                        @if(\Auth::check())
                          <li role="separator" class="divider"></li>
                          <li><a href="/items/create">Create Item</a></li>
                          <li><a href="/items/show-update">Edit/Delete items</a></li>
+                        @endif
                        </ul>
                      </li>
-            		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Organizer</a></li>
             	</ul>
                 <ul id="login-info" class="nav nabar-nav navbar-right">
                         @if(\Auth::check())

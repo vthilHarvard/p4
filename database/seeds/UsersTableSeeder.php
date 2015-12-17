@@ -16,7 +16,6 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Jill';
         $user->email = 'jill@harvard.edu';
         $user->password = \Hash::make('helloworld');
-        $user->role='Organizer';
         $user->save();
 
         $user = \Register\User::firstOrCreate(['email' => 'jamal@harvard.edu']);
@@ -24,5 +23,13 @@ class UsersTableSeeder extends Seeder
         $user->email = 'jamal@harvard.edu';
         $user->password = \Hash::make('helloworld');
         $user->save();
+        //
+        $user = \Register\User::firstOrCreate(['email' => 'jessica@harvard.edu']);
+        $user->name = 'Jessica';
+        $user->email = 'jessica@harvard.edu';
+        $user->password = \Hash::make('helloworld');
+        $user->role ='Organizer';
+        $user->save();
+
     }
 }

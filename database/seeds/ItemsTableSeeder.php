@@ -12,6 +12,7 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
         //
+            $user_id = \Register\User::where('name','=','Jill')->pluck('id');
             DB::table('items')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -20,12 +21,13 @@ class ItemsTableSeeder extends Seeder
             'type' => 'Dance',
             'participant_count' => 2,
             'audition_link' => 'http://www.example.com',
-            'user_id' => 1001,
+            'user_id' => $user_id,
             'description' => 'Medley of dances',
             'status' => 'Incomplete',
             'special_notes' => 'Need floor mikes'
         ]);
 
+            $user_id = \Register\User::where('name','=','Jamal')->pluck('id');
             DB::table('items')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -34,7 +36,7 @@ class ItemsTableSeeder extends Seeder
             'type' => 'Music',
             'participant_count' => 4,
             'audition_link' => 'http://www.example.com',
-            'user_id' => 1002,
+            'user_id' => $user_id,
             'description' => 'Violins and Cellos',
             'status' => 'Incomplete',
             'special_notes' => 'Need standing mikes'

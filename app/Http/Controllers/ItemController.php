@@ -70,7 +70,7 @@ class ItemController extends Controller
         $item->type = $request->type;
         $item->audition_link = $request->audition_link;
         $item->participant_count = $request->participant_count;
-        $item->user_id = 1001;
+        $item->user_id = \Auth::user()->id;
         $item->description = $request->description;
         $item->status = 'Incomplete';
         echo 'Status is '.$request->status; //Status is incomplete to start wtih
@@ -104,14 +104,14 @@ class ItemController extends Controller
             \Session::flash('flash_message','Item not found.');
             return redirect('/items');
         }
-        var_dump($item->toArray());
+        //var_dump($item->toArray());
 
         //return 'ready to edit item';
         //return $item->school.' '.$item->name;
         return view('items.edit')->with('item', $item);
 
     }
-    
+
     public function postEdit(Request $request)
     {
 
@@ -136,7 +136,7 @@ class ItemController extends Controller
         $item->type = $request->type;
         $item->audition_link = $request->audition_link;
         $item->participant_count = $request->participant_count;
-        $item->user_id = 1001;
+        $item->user_id = \Auth::user()->id;
         $item->description = $request->description;
         //echo 'Status is '.$request->status;
         if ($request->status == 'yes')
@@ -182,7 +182,7 @@ class ItemController extends Controller
     public function getShowUpdate(Request $request) {
 
       // $items = Item::all();
-       $items = Item::where('user_id','=',1001)
+       $items = Item::where('user_id','=',\Auth::user()->id)
        ->where('status','=', 'Incomplete')
        ->get();
        //dump($items->toArray());
