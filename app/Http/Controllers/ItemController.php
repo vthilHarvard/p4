@@ -111,9 +111,7 @@ class ItemController extends Controller
         return view('items.edit')->with('item', $item);
 
     }
-
-
-
+    
     public function postEdit(Request $request)
     {
 

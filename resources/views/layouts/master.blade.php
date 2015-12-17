@@ -56,13 +56,22 @@
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Items <span class="caret"></span></a>
                        <ul class="dropdown-menu">
                          <li><a href="/items">Show All</a></li>
-                         <li role="separator" class="divider"></li>                         
+                         <li role="separator" class="divider"></li>
                          <li><a href="/items/create">Create Item</a></li>
                          <li><a href="/items/show-update">Edit/Delete items</a></li>
                        </ul>
                      </li>
             		<li class="{{ Request::is('users') ? 'active' :'' }}"><a href="/users">Organizer</a></li>
             	</ul>
+                <ul id="login-info" class="nav nabar-nav navbar-right">
+                        @if(\Auth::check())
+                        <li>Hi {{ \Auth::user()->name }}</li>
+                        <li><a href='/logout'>Log out {{ \Auth::user()->name }}</a></li>
+                        @else
+                        <li><a href='/login'>Log in</a></li>
+                        <li><a href='/register'>Register</a></li>
+                        @endif
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
             </div>
