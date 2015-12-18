@@ -6,7 +6,7 @@ This is a Git repository for the fourth and final project of
 <http://p4.thilagar.me>
 
 ###Live demo
-<https://youtu.be/u5Bl3Ry1zsg>
+<https://youtu.be/L-XSTFhmns4>
 
 ###Short description
 The project is called "America's kids got talent". This is an event registration system for a Children's talent show.
