@@ -10,6 +10,7 @@ font-family: 'Roboto Slab', serif;
     border: 2px solid #4E83B8;
     padding: 3px 0 3px 0;
     margin-top: 4px;
+    font-family: 'Roboto Slab', serif;
 }
 
 .jumbotron h1 , .jumbotron h2,
@@ -56,6 +57,11 @@ label {
 #brand_image {
  margin-top:-15px;
 
+}
+.img-border {
+    border-style: solid;
+    border-width: thin;
+    border-color: #F5F5DC;
 }
 /*----------------------------------------------------
 Flash message

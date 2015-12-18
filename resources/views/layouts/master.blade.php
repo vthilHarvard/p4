@@ -60,9 +60,13 @@
                        <ul class="dropdown-menu">
                          <li><a href="/items">Show All</a></li>
                         @if(\Auth::check())
-                         <li role="separator" class="divider"></li>
-                         <li><a href="/items/create">Create Item</a></li>
-                         <li><a href="/items/show-update">Edit/Delete items</a></li>
+                            <li role="separator" class="divider"></li>
+                            @if(\Auth::user()->role == 'Registered')
+                                 <li><a href="/items/create">Create Item</a></li>
+                                 <li><a href="/items/show-update">Edit/Delete items</a></li>
+                             @elseif(\Auth::user()->role == 'Organizer')
+                                 <li><a href="/items/review">Review Items</a></li>
+                             @endif
                         @endif
                        </ul>
                      </li>
@@ -70,6 +74,9 @@
                 <ul id="login-info" class="navbar-right list-inline ">
                         @if(\Auth::check())
                         <li>You're logged in as {{ \Auth::user()->name }}</li>
+                        @if(\Auth::user()->role == 'Organizer')
+                            <li>(Organizer)</li>
+                        @endif
                         <li><a href='/logout'>Log out</a></li>
                         @else
                         <li><a href='/login'>Log in or</a></li>
@@ -88,9 +95,9 @@
         <div class="row">
             <!-- images on the left -->
             <div class="col-md-2">
-                <img alt = "Dancing girls" src="/images/SiteCover_small.jpg" class="img-responsive"/>
-                <img alt = "Anish with sax" src="/images/Anish_Sax_small.jpg" class="img-responsive"/>
-                <img alt = "Lasya dancing" src="/images/Lasya_Dance_Small.jpg" class="img-responsive"/>
+                <img alt = "Dancing girls" src="/images/SiteCover_small.jpg" class="img-responsive img-border"/>
+                <img alt = "Anish with sax" src="/images/Anish_Sax_small.jpg" class="img-responsive img-border"/>
+                <img alt = "Lasya dancing" src="/images/Lasya_Dance_Small.jpg" class="img-responsive img-border"/>
             </div>
             <div class="col-md-8 col-md-offset-1">
             {{-- Main page content will be yielded here --}}

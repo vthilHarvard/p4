@@ -76,6 +76,9 @@
         Route::get('/items/delete/{id?}', 'ItemController@getDoDelete');
         Route::get('items/show', 'ItemController@getShow');
         Route::get('items/show-update', 'ItemController@getShowUpdate');
+        Route::get('/items/review', 'ItemController@getReview');
+        Route::get('/items/approve/{id}', 'ItemController@getApprove');
+        Route::get('/items/reject/{id}', 'ItemController@getReject');
     });
 
 

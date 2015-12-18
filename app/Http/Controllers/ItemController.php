@@ -227,6 +227,61 @@ class ItemController extends Controller
        return $item;
    }
 
+    public function getReview(Request $request)
+    {
+        //Check if this is an authorized organizer
+        if (\Auth::user()->role == 'Organizer' )
+        {
+            $items = Item::where('status','=', 'Submitted')->get();
+            //dump($items->toArray());
+            if (count($items) > 0)
+            {
+                return view('items.show-review')->with('items',$items);
+            }
+            else {
+             \Session::flash('flash_message',"There are no items for review.");
+             return redirect('/items');
+            }
+        }
+        else {
+            \Session::flash('flash_message',"You are not authorized to perform that function.");
+            return redirect('/items');# code...
+        }
+    }
+
+    public function getApprove($item_id)
+    {
+        //Check if this is an authorized organizer
+        if (\Auth::user()->role == 'Organizer' )
+        {
+            $item = Item::find($item_id);
+            if(is_null($item)) {
+                \Session::flash('flash_message','item not found.');
+                return redirect('/items');
+            }
+            $item->status = 'Accepted';
+            $item->save();
+            \Session::flash('flash_message',"Item ".$item->name.' was approved.');
+            return redirect('/items');
+        }
+    }
+    public function getReject($item_id)
+    {
+        //Check if this is an authorized organizer
+        if (\Auth::user()->role == 'Organizer' )
+        {
+            $item = Item::find($item_id);
+            if(is_null($item)) {
+                \Session::flash('flash_message','item not found.');
+                return redirect('/items');
+            }
+            $item->status = 'Rejected';
+            $item->save();
+            \Session::flash('flash_message',"Item ".$item->name.' was rejected.');
+            return redirect('/items');
+        }
+    }
+
     public function destroy($id)
     {
         //
