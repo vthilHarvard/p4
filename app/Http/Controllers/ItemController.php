@@ -98,18 +98,21 @@ class ItemController extends Controller
     * Responds to requests to GET /items/edit/{$id}
     */
     public function getEdit($id = null) {
-        $item = new Item();
+
+        //$item = new Item();
         $item = Item::find($id);
         if(is_null($item)) {
             \Session::flash('flash_message','Item not found.');
             return redirect('/items');
         }
-        //var_dump($item->toArray());
-
-        //return 'ready to edit item';
-        //return $item->school.' '.$item->name;
-        return view('items.edit')->with('item', $item);
-
+        else {
+            if ($item->user_id != \Auth::user()->id)
+            {
+                \Session::flash('flash_message','You cannot access this item.');
+                return redirect('/items');
+            }
+            return view('items.edit')->with('item', $item);
+        }
     }
 
     public function postEdit(Request $request)
@@ -162,6 +165,17 @@ class ItemController extends Controller
 	*/
     public function getConfirmDelete($item_id) {
         $item = Item::find($item_id);
+        if(is_null($item)) {
+            \Session::flash('flash_message','item not found.');
+            return redirect('/items');
+        }
+        else {
+            if ($item->user_id != \Auth::user()->id)
+            {
+                \Session::flash('flash_message','You cannot access this item.');
+                return redirect('/items');
+            }
+        }
         //var_dump($item->toArray());
         return view('items.delete')->with('item', $item);
     }
@@ -194,6 +208,23 @@ class ItemController extends Controller
         \Session::flash('flash_message',"You have no items for updates.");
         return redirect('/items');
        }
+   }
+
+   function checkItemAccess($item_id)
+   {
+       $item = Item::find($item_id);
+       if(is_null($item)) {
+           \Session::flash('flash_message','Item not found.');
+           return redirect('/items');
+       }
+       else {
+           if ($item->user_id != \Auth::user()->id)
+           {
+               \Session::flash('flash_message','You cannot access this item.');
+               return redirect('/items');
+           }
+       }
+       return $item;
    }
 
     public function destroy($id)
