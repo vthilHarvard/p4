@@ -3,7 +3,9 @@
 @section('title')
     List of items
 @stop
-
+@section('sub-heading')
+  List of all items
+@stop
 @section('content')
 
     <h2 class="text-center text-muted">Items registered to date</h2>

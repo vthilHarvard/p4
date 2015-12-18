@@ -90,7 +90,7 @@
             <div class="col-md-2">
                 <img alt = "Dancing girls" src="/images/SiteCover_small.jpg" class="img-responsive"/>
                 <img alt = "Anish with sax" src="/images/Anish_Sax_small.jpg" class="img-responsive"/>
-                <img alt = "Lasya dancing" src="/images/Lasya_Dance_small.jpg" class="img-responsive"/>
+                <img alt = "Lasya dancing" src="/images/Lasya_Dance_Small.jpg" class="img-responsive"/>
             </div>
             <div class="col-md-8 col-md-offset-1">
             {{-- Main page content will be yielded here --}}
