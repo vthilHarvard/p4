@@ -8,7 +8,8 @@
 
     <meta charset='utf-8'>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css" type='text/css' rel='stylesheet'>
-  <link href="/css/custom.css" type='text/css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href="/css/custom.css" type='text/css' rel='stylesheet'>
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
 
@@ -66,15 +67,16 @@
                        </ul>
                      </li>
             	</ul>
-                <ul id="login-info" class="nav nabar-nav navbar-right">
+                <ul id="login-info" class="navbar-right list-inline ">
                         @if(\Auth::check())
-                        <li>Hi {{ \Auth::user()->name }}</li>
-                        <li><a href='/logout'>Log out {{ \Auth::user()->name }}</a></li>
+                        <li>You're logged in as {{ \Auth::user()->name }}</li>
+                        <li><a href='/logout'>Log out</a></li>
                         @else
-                        <li><a href='/login'>Log in</a></li>
+                        <li><a href='/login'>Log in or</a></li>
                         <li><a href='/register'>Register</a></li>
                         @endif
                 </ul>
+
             </div>
             <!-- /.navbar-collapse -->
             </div>
