@@ -40,8 +40,9 @@ such as a page specific styesheets.
   </p>
   <h3>Lip Sync</h3>
   <p>For kids who may not have singing talent but love to ham it up, lip syncing is an option. Add costumes and trademark movements to imitate the real singer.
-      <a href=" http://www.ehow.com/list_5809978_kids-talent-show-ideas.html">Read more... </a>
+      <a href=" http://www.ehow.com/list_5809978_kids-talent-show-ideas.html">Read more in ehow.com... </a>
   </p>
+  <p class="text-info">The above copy is from ehow.com</p>
 
   </div>
 </div>

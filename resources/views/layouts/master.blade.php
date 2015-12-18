@@ -109,7 +109,8 @@
     <footer>
       <div class="row center">
        <p class="text-center">&copy; {{ date('Y') }}</p>
-        <p class="text-center"><a href="https://openclipart.org/detail/3580/pluged-in-coder">Logo image from open clipart library</a></p>
+        <p class="text-center"><a href="https://commons.wikimedia.org/wiki/File:Bharatnatyam_logo.png">Logo image from Wikimedia commons</a></p>
+        <p class="text-center"> Attribution - By AJ.iitm (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons</p>
       </div>
     </footer>
 
