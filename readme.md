@@ -12,10 +12,10 @@ This is a Git repository for the fourth and final project of
 The project is called "America's kids got talent". This is an event registration system for a Children's talent show.
 Users register with the site and by default they're registered as 'Registered'. So, Jill and Jamal are the default registered users. Only registered users can create items for performance.
 An __item__ has the following fields:
-       1. id
-       2. name of school
-       3. name of item
-       4. type of item ('Dance'| 'Music' | 'Skit')
+       * id
+       * name of school
+       * name of item
+       * type of item ('Dance'| 'Music' | 'Skit')
 
 
 __All pages of the generated code validated in the w3.org validator__
