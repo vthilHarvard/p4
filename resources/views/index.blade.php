@@ -28,7 +28,27 @@ such as a page specific styesheets.
         @endforeach
     </ul>
  @endif
- <h3 class="text-info text-center">Register your team for the 2016 talent show</h3>
+ <h3 class="text-info text-center">Register your team for the 2016 talent show
+<br/>To be held on March 31st 2016 at Lexington HS, Lexington MA</h3>
+ <p class="text-success"><a href="/items">View the currently registered teams and the status of the current registration</a></p>
+ <h4 class"text-info text-center">To register your team, please follow the steps below </h4>
+     <div class ="row ">
+         <ul>
+             <li><a href="/register">Register with this site</a> and login</li>
+             <li>Register your team from the Items->Create Item menu option</li>
+             <li>Edit and update your items from Items->Edit/Delete item option</li>
+             <li>You may continue to edit your item until you Submit it for approval</li>
+             <li>You're required to submit a video clip of < 10 mins for review</li>
+             <li>The organizers will review and update the status of your item in a week</li>
+             <li class="text-info">Good luck to your team!!!</li>
+         </ul>
+    </div>
+    <div>
+        <h4 class="text-info">Proceeds from this event will be used to support the "Performing Arts Clubs" in our local schools.</h4>
+        <h5 class="text-info">We look forward to your continued patronage in this initiative</h5>
+        <h5 class="text-danger">Please register your team before Jan 31st, 2016</h5>
+        <h5 class
+    </div>
   <div class="row">
       <p>While some kids may have obvious talents (playing the piano or singing), other kids may think there’s nothing special they can do, but almost any child can participate in a talent show. Give them some ideas, encourage them to think creatively, and let them have at it. Remember to teach kids to be a good audience by clapping, cheering or laughing at appropriate places.
     </p>
